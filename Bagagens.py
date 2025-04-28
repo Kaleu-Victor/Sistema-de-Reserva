@@ -20,11 +20,25 @@ while True:
         bagagens.append(bagagem)
     
     if op == 2:
-        for bagagem in bagagens:
-            print(f"Número da bagagem: {bagagem[0]} | Peso: {bagagem[1]}kg | Destino: {bagagem[2]} ")
+        if not bagagens:
+            print("Nenhuma bagagem cadastrada")
+        else:
+            for bagagem in bagagens:
+                print(f"Número da bagagem: {bagagem[0]} | Peso: {bagagem[1]}kg | Destino: {bagagem[2]} ")
 
+    # op 3 atualizada.
+    # agora ela remove a bagagem escolhida conforme o número selecionado pelo usuário
     if op == 3:
-        remover_ultima_bagagem = bagagem.remove()
+        del_bagagem = int(input("Qual é o número da bagagem para ser removida? "))
+        encontrado = False
+        for bagagem in bagagens:
+            if bagagem[0] == del_bagagem:
+                bagagens.remove(bagagem)
+                print(f"Bagagem | {del_bagagem} | removida com sucesso.")
+                encontrado = True
+                break
+        if not encontrado:
+            print(f"Bagagem número | {del_bagagem} | não encontrada.")
 
     if op == 4:
         print("Sistema encerrado.")
