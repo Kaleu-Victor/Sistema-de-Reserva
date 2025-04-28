@@ -1,13 +1,12 @@
-
 assentos = [["L","O","L"],["O","O","L"],["L","L","O"]]
 cadeiras = [["1","2","3"],["4","5","6"],["7","8","9"]]
 
-print("Assentos do Avião:")
+print("N° dos assentos: ", end="")
 for i in cadeiras:
     for o in i:
         print(f"{o} - ", end="")
 
-while True:
+def assentos_f():
     print()
     print()
     for i in assentos:
@@ -24,7 +23,7 @@ while True:
         else:
             print()
             print("Este assento já está ocupado!")
-    if posicao >= 4 and posicao <= 6:
+    elif posicao >= 4 and posicao <= 6:
         if assentos[1][posicao-4] == "L":
             decisao = str(input("Tem certeza que quer comprar essa vaga? (s/n) "))
             if decisao == "s":
@@ -33,7 +32,7 @@ while True:
             print()
             print("Este assento já está ocupado!")
 
-    if posicao >= 7 and posicao <= 9:
+    elif posicao >= 7 and posicao <= 9:
         if assentos[2][posicao-7] == "L":
             decisao = str(input("Tem certeza que quer comprar essa vaga? (s/n) "))
             if decisao == "s":
@@ -41,4 +40,9 @@ while True:
         else:
             print()
             print("Este assento já está ocupado!")
+    else:
+        print()
+        print("Escolha outro valor!")
 
+while True:
+    assentos_f()

@@ -23,9 +23,9 @@ def baguagem():
         for i in range(1, qtd+1):
             print("#########################################")
             peso = float(input(f"Digite o peso da mala {i}: "))
-            comprimento = float(input("Dimencoes da bagagem (comprimento): "))
-            largura = float(input("Dimencoes da bagagem (largura): "))
-            altura = float(input("Dimencoes da bagagem (altura): "))
+            comprimento = float(input("Dimensoes da bagagem (comprimento): "))
+            largura = float(input("Dimensoes da bagagem (largura): "))
+            altura = float(input("Dimensoes da bagagem (altura): "))
             print() 
 
             def erroAoAdicionar(erro):
@@ -48,7 +48,7 @@ def baguagem():
                     if comprimento <= 55 and largura <= 35 and altura <= 25: # verificando tamanho da baguagem
                         bagagensParaAdicionar += 1
                     else:
-                        if erroAoAdicionar("dimencoes aceitas") == "parar": break
+                        if erroAoAdicionar("dimensoes aceitas") == "parar": break
                 else:
                     if erroAoAdicionar("peso") == "parar": break
 
@@ -57,7 +57,7 @@ def baguagem():
                     if comprimento <= 55 and largura <= 35 and altura <= 25:
                         bagagensParaAdicionar += 1
                     else:
-                        if erroAoAdicionar("dimencoes aceitas") == "parar": break
+                        if erroAoAdicionar("dimensoes aceitas") == "parar": break
                 else:
                     if erroAoAdicionar("peso") == "parar": break
         
