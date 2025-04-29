@@ -1,3 +1,32 @@
+import numpy as np
+
+# Adição das matrizes
+assentos_ex = np.zeros([6,2])
+assentos_ec = np.zeros([6,2])
+estoque_malas = np.zeros([7,7])
+
+assentos_ex[0][0] = 1
+assentos_ex[2][0] = 1
+assentos_ex[4][0] = 1
+assentos_ex[1][1] = 1
+assentos_ex[2][1] = 1
+assentos_ex[3][1] = 1
+assentos_ex[5][1] = 1
+
+assentos_ec[0][0] = 1
+assentos_ec[0][1] = 1
+assentos_ec[3][0] = 1
+assentos_ec[3][1] = 1
+assentos_ec[5][0] = 1
+assentos_ec[5][1] = 1
+
+print(f"\nAssentos Executivos:\n{assentos_ex}")
+print("\n=====================\n")
+print(f"\nAssentos Econômicos:\n{assentos_ec}")
+print("\n=====================\n")
+print(f"Estoque de Bagagens:\n{estoque_malas}\n")
+
+
 bagagens = []
 
 while True:
@@ -26,8 +55,6 @@ while True:
             for bagagem in bagagens:
                 print(f"Número da bagagem: {bagagem[0]} | Peso: {bagagem[1]}kg | Destino: {bagagem[2]} ")
 
-    # op 3 atualizada.
-    # agora ela remove a bagagem escolhida conforme o número selecionado pelo usuário
     if op == 3:
         del_bagagem = int(input("Qual é o número da bagagem para ser removida? "))
         encontrado = False
