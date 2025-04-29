@@ -1,48 +1,37 @@
-assentos = [["L","O","L"],["O","O","L"],["L","L","O"]]
-cadeiras = [["1","2","3"],["4","5","6"],["7","8","9"]]
-
-print("N° dos assentos: ", end="")
-for i in cadeiras:
-    for o in i:
-        print(f"{o} - ", end="")
-
-def assentos_f():
-    print()
-    print()
-    for i in assentos:
-        print(i)
-    print()
-    posicao = int(input("Digite o numero do assento: "))
-
-    if posicao >= 1 and posicao <= 3:
-        print(assentos[0][posicao-1]) # pegando assentos
-        if assentos[0][posicao-1] == "L": # setando assento
-            decisao = str(input("Tem certeza que quer comprar essa vaga? (s/n) "))
-            if decisao == "s":
-                assentos[0][posicao-1] = "O"
+def registrar(matrizAssentos, posicao, column, row):
+    if matrizAssentos[column][posicao-row] == 0: # setando assento
+        decisao = str(input("Tem certeza que deseja ocupar esse assento: (s/n) "))
+        print()
+        if decisao == "s":
+            matrizAssentos[column][posicao-row] = 1 
         else:
-            print()
-            print("Este assento já está ocupado!")
-    elif posicao >= 4 and posicao <= 6:
-        if assentos[1][posicao-4] == "L":
-            decisao = str(input("Tem certeza que quer comprar essa vaga? (s/n) "))
-            if decisao == "s":
-                assentos[1][posicao-4] = "O"
-        else:
-            print()
-            print("Este assento já está ocupado!")
-
-    elif posicao >= 7 and posicao <= 9:
-        if assentos[2][posicao-7] == "L":
-            decisao = str(input("Tem certeza que quer comprar essa vaga? (s/n) "))
-            if decisao == "s":
-                assentos[2][posicao-7] = "O"
-        else:
-            print()
-            print("Este assento já está ocupado!")
+            return "assento nao reservado"  
     else:
         print()
-        print("Escolha outro valor!")
+        print("Este assento já está ocupado!\n")
+        return "assento nao reservado"  
 
-while True:
-    assentos_f()
+def ocupar_assento(matriz_assentos):
+    posicao = int(input("\nDigite o numero do assento: "))
+
+    if posicao == 1 or posicao == 2:
+        return registrar(matriz_assentos, posicao, 0, 1)
+        
+    elif posicao == 3 or posicao == 4:
+        return registrar(matriz_assentos, posicao, 1, 3)
+
+    elif posicao == 5 or posicao == 6:
+        return registrar(matriz_assentos, posicao, 2, 5)
+
+    elif posicao == 7 or posicao == 8:
+        return registrar(matriz_assentos, posicao, 3, 7)
+
+    elif posicao == 9 or posicao == 10:
+        return registrar(matriz_assentos, posicao, 4, 9)
+
+    elif posicao == 11 or posicao == 12:
+        return registrar(matriz_assentos, posicao, 5, 11)
+
+    else:
+        print("\nEscolha outro valor!\n")
+        return "assento nao reservado"  
