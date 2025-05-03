@@ -1,18 +1,19 @@
+def pause(): input("  (enter) ")
+
 def registrar(matrizAssentos, posicao, column, row):
     if matrizAssentos[column][posicao-row] == 0: # setando assento
-        decisao = str(input("Tem certeza que deseja ocupar esse assento: (s/n) "))
-        print()
+        decisao = str(input("\nTem certeza que deseja ocupar esse assento: (s/n) "))
         if decisao == "s":
             matrizAssentos[column][posicao-row] = 1 
         else:
             return "assento nao reservado"  
     else:
-        print()
-        print("Este assento já está ocupado!\n")
+        print("\nEste assento já está ocupado!\n")
+        pause()
         return "assento nao reservado"  
 
 def ocupar_assento(matriz_assentos):
-    posicao = int(input("\nDigite o numero do assento: "))
+    posicao = int(input("\nDigite o numero do assento de 1-12: "))
 
     if posicao == 1 or posicao == 2:
         return registrar(matriz_assentos, posicao, 0, 1)
@@ -33,5 +34,6 @@ def ocupar_assento(matriz_assentos):
         return registrar(matriz_assentos, posicao, 5, 11)
 
     else:
-        print("\nEscolha outro valor!\n")
+        print("\nEscolha um valor valido de 1-12!\n")
+        pause()
         return "assento nao reservado"  

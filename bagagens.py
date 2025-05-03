@@ -1,4 +1,6 @@
-def baguagem(matriz_bagagens, classe):
+def pause(): input("  (enter) ")
+
+def bagagem(matriz_bagagens, classe):
     decisao = str(input("\nVoce tem bagagem: (s/n) "))
 
     if decisao == "s":
@@ -10,27 +12,23 @@ def baguagem(matriz_bagagens, classe):
                     espaco_ocupado_na_matriz += 1
                 else: break
 
-        qtd = int(input(f"Quantas malas: (limite {49 - espaco_ocupado_na_matriz}) ")) # 49
-        if qtd <= (49 - espaco_ocupado_na_matriz): # 49
+        qtd = int(input(f"\nQuantas malas: (limite {49 - espaco_ocupado_na_matriz}) ")) # 49
+        if qtd >= 1 and qtd <= (49 - espaco_ocupado_na_matriz): # 49
             for i in range(1, qtd+1):
                 def erroAoAdicionar():
-                    print("!! ATENCAO !!")
-                    print(f"Esta mala ultrapassa os limites de peso.")
-                    print()
+                    print("\n!! ATENCAO !!")
+                    print(f"Esta mala ultrapassa os limites de peso, portanto nao sera armazenada.\n")
                     print("OPCOES:")
                     print("1 - Continuar adicionando a proxima mala")
                     print("2 - Parar")
                     decisao = int(input("> "))
-                    print()
                     if decisao == 2:
-                        print("! As malas (registradas com sucesso) serao guardadas!")
-                        print()
+                        print("\n- As malas (registradas com sucesso) foram armazenadas!")
                         return "parar"
                     else: pass
 
-                print("#########################################")
-                peso = float(input(f"Digite o peso(kg) da mala {i}: "))
-                print()   
+                print("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+                peso = float(input(f"Digite o peso(kg) da mala {i}: "))   
                 
                 if classe == "ex":
                     if peso <= 32: bagagensParaAdicionar += 1
@@ -66,7 +64,8 @@ def baguagem(matriz_bagagens, classe):
 
             return _bagagensSalvas
         else:
-            print("\nEspaço insuficiente!\n")
+            print("\nNão é possivel armazenar a bagagem!")
+            pause()
             _bagagensSalvas = 0
             return _bagagensSalvas
     else:
